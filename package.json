@@ -6,7 +6,10 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "webpack -p",
+    "build": "webpack --mode production",
+    "package-setup": "npx nodegui-packer --init SimsModSwitcher",
+    "package": "webpack --mode production && npx nodegui-packer --pack ./dist",
+    "clean": "rimraf ./dist && rimraf ./deploy",
     "start": "webpack && qode ./dist/index.js",
     "debug": "webpack && qode --inspect ./dist/index.js"
   },
@@ -21,6 +24,7 @@
     "file-loader": "^6.2.0",
     "fs-extra": "^10.0.0",
     "native-addon-loader": "^2.0.1",
+    "rimraf": "^3.0.2",
     "ts-loader": "^9.2.3",
     "typescript": "^4.3.4",
     "webpack": "^5.39.1",

@@ -1,6 +1,6 @@
-import { FileSystem } from '../fileSystem/fileSystem';
-import { Mod } from '../mod/mod';
-import * as path from 'path';
+import { FileSystem } from "./fileSystem";
+import { Mod } from "../mod/mod";
+import * as path from "path";
 
 export class ModService {
   private fileSystem: FileSystem;
@@ -8,7 +8,7 @@ export class ModService {
 
   constructor(modPath: string, simsModPath: string) {
     this.fileSystem = new FileSystem(modPath, simsModPath);
-    this.mods = this.fileSystem.getAllMods().map((mod) => {
+    this.mods = this.fileSystem.getAllMods().map((mod: string) => {
       let modName = mod.split(path.sep).pop()!;
       let enabled =
         this.fileSystem

@@ -1,7 +1,6 @@
-import { QCheckBox, WidgetEventTypes } from '@nodegui/nodegui';
-import { NativeRawPointer } from '@nodegui/nodegui/dist/lib/core/Component';
-import * as path from 'path';
-import { FileSystem } from '../fileSystem/fileSystem';
+import { QCheckBox } from "@nodegui/nodegui";
+import * as path from "path";
+import { FileSystem } from "./../services/fileSystem";
 
 export class Mod {
   private readonly folderPath: string;
@@ -18,7 +17,7 @@ export class Mod {
     this.checkBox.setText(this.modName);
     this.checkBox.setChecked(enabled);
     let self = this;
-    this.checkBox.addEventListener('clicked', (checked: boolean) => {
+    this.checkBox.addEventListener("clicked", (checked: boolean) => {
       self.onClick(checked);
     });
   }
